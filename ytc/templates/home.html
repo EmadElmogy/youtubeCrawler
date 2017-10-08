@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item active">Videos</li>
+{% endblock %}
+
+{% block content %}
+
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="id_link">Youtube Link</label>
+        <input type="text" class="form-control" id="id_link" name="link">
+      </div>
+      <button type="submit" class="btn btn-success">sumbit</button>
+    </form>
+    <br>
+    <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>URL</th>
+        <th>Title</th>
+        <th>Duration</th>
+        <th>Views</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for video in videos %}
+        <tr>
+          <td>
+            {{ video.id }}
+          </td>
+          <td>
+            <a href="#">{{ video.filename }}</a>
+          </td>
+          <td class="align-middle">{{ video.duration }}</td>
+          <td class="align-middle">{{ video.views }}</td>
+          <td></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
