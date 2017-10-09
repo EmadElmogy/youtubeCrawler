@@ -11,7 +11,7 @@ Installation Steps
 --------------------
 
 
-    ```pip install used modules ```
+   pip install  all used modules 
 then
 
   ```python manage.py migrate```
